@@ -137,6 +137,7 @@ task.spawn(function()
             end
 if spamEnabled then
 brick.Event:FireServer("lego")
+				end
         end
     end
 end)

@@ -17,6 +17,7 @@ local Tabv2 = Window:MakeTab({
 local power = 50
 local flight = 0.52
 local speed = 0
+local slapfarmEnabled = false
 local flightEnabled = false
 local spamEnabled = false
 
@@ -72,7 +73,13 @@ local spamToggle = Tabv2:AddToggle({
         spamEnabled = value
     end
 })
-
+local slapfarmToggle = Tabv2:AddToggle({
+    Name = "Включить Slap farm",
+    Default = slapfarmEnabled,
+    Callback = function(value)
+        slapfarmEnabled = value
+    end
+})
 
 Tab:AddButton({
     Name = "Увеличить хитбоксы",
@@ -139,6 +146,19 @@ task.spawn(function()
                 brick.FlightSpeed.Value = flight
 				elseif spamEnabled then
 brick.Event:FireServer("lego")
+				elseif famrslap then
+game.Players.LocalPlayer.Character.Torso.CFrame = workspace.LobbyGloboStrart.Portal.Union.CFrame
+wait(0.21)
+game.Players.LocalPlayer.Backpack.Brick.Parent = game.Players.LocalPlayer.Character
+local VU = game:GetService("VirtualUser")
+    VU:CaptureController()
+    VU:ClickButton1(Vector2.new(9,9,9))
+for _,plrs in ipairs(game.Players:GetChildren()) do
+if game.Players.LocalPlayer.Character.name ~= plrs.name and plrs.Character.Inlobby.Value == false  then
+game.Players.LocalPlayer.Character.Torso.CFrame = plrs.Character.Torso.CFrame
+end
+end
+end
             end
         end
     end

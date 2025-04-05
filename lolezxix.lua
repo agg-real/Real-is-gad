@@ -66,13 +66,13 @@ Tab:AddToggle({
         flightEnabled = value
     end
 })
---[[Tabv2:AddToggle({
+Tabv2:AddToggle({
     Name = "Включить Slap farm",
-    Default = slapfarmEnabled,
+    Default = false,
     Callback = function(value)
         slapfarmEnabled = value
     end
-})--]]
+})
 
 Tab:AddButton({
     Name = "Увеличить хитбоксы",

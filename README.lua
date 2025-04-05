@@ -19,7 +19,7 @@ local gloveTextbox = Tab:AddTextbox({
     Name = "Перчатка",
     Default = tostring(glove),
     Callback = function(value)
-            powerTextbox:Set(tostring(glove))
+            gloveTextbox:Set(tostring(glove))
         end
     end
 })

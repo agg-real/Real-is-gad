@@ -15,7 +15,7 @@ local speed = 0
 local flightEnabled = false
 local dragEnabled = true
 
-local powerTextbox = Tab:AddTextbox({
+local xowerTextbox = Tab:AddTextbox({
 	Name = "Textbox",
 	Default = "default box input",
 	TextDisappear = true,

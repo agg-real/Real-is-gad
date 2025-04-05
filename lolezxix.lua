@@ -135,32 +135,3 @@ end)
 
 OrionLib:Init()
 
-local function MakeDraggable(DragPoint, Main)
-    local Dragging, DragInput, MousePos, FramePos = false
-    DragPoint.InputBegan:Connect(function(Input)
-        if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
-            Dragging = true
-            MousePos = Input.Position
-            FramePos = Main.Position
-            Input.Changed:Connect(function()
-                if Input.UserInputState == Enum.UserInputState.End then
-                    Dragging = false
-                end
-            end)
-        end
-    end)
-    DragPoint.InputChanged:Connect(function(Input)
-        if Input.UserInputType == Enum.UserInputType.MouseMovement or Input.UserInputType == Enum.UserInputType.Touch then
-            DragInput = Input
-        end
-    end)
-    UserInputService.InputChanged:Connect(function(Input)
-        if Input == DragInput and Dragging and dragEnabled then
-            local Delta = Input.Position - MousePos
-            TweenService:Create(Main, TweenInfo.new(0.05, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Position = UDim2.new(FramePos.X.Scale, FramePos.X.Offset + Delta.X, FramePos.Y.Scale, FramePos.Y.Offset + Delta.Y)}):Play()
-            Main.Position = UDim2.new(FramePos.X.Scale, FramePos.X.Offset + Delta.X, FramePos.Y.Scale, FramePos.Y.Offset + Delta.Y)
-        end
-    end)
-end
-
-MakeDraggable(Window.Main.TopBar, Window.Main)

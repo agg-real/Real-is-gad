@@ -28,14 +28,6 @@ local powerTextbox = Tab:AddTextbox({
         end
     end
 })
-local glovetxt = Tab:AddTextbox({
-    Name = "Перчатка",
-    Default = tostring(glove),
-    Callback = function(value)
-glove = value
-        end
-    end
-})
 
 local flightspeedTextbox = Tab:AddTextbox({
     Name = "Скорость полёта",

@@ -14,7 +14,6 @@ local flight = 0.52
 local speed = 0
 local flightEnabled = false
 local dragEnabled = true
-local glove = "Brick"
 
 local powerTextbox = Tab:AddTextbox({
     Name = "Мощность",
@@ -26,13 +25,6 @@ local powerTextbox = Tab:AddTextbox({
         else
             powerTextbox:Set(tostring(power))
         end
-    end
-})
-local gloveTextbox = Tab:AddTextbox({
-    Name = "Перча",
-    Default = "Def",
-    Callback = function(value)
-print(value)
     end
 })
 

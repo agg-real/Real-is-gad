@@ -136,7 +136,7 @@ task.spawn(function()
     end
 end)
 
---[[
+
 task.spawn(function()
 game.Players.LocalPlayer.Character.Torso.CFrame = workspace.LobbyGloboStrart.Portal.Union.CFrame
 wait(0.21)
@@ -153,7 +153,7 @@ end
 end
 			end
 		end
-end) --]]
+end) 
 
 OrionLib:Init()
 

@@ -138,7 +138,7 @@ end)
 
 
 task.spawn(function()
-game.Players.LocalPlayer.Character.Torso.CFrame = workspace.Portal.Union.CFrame
+game.Players.LocalPlayer.Character.Torso.CFrame = game.Workspace.LobbyGloboStart.Portal.Union.CFrame
 wait(0.21)
 game.Players.LocalPlayer.Backpack.Brick.Parent = game.Players.LocalPlayer.Character
 while task.wait() do

@@ -8,12 +8,13 @@ local Mouse = LocalPlayer:GetMouse()
 local HttpService = game:GetService("HttpService")
 
 local Window = OrionLib:MakeWindow({Name = "Skibi-lich hub", HidePremium = false, SaveConfig = true})
-local Tab = Window:MakeTab({Name = "Главная", Icon = "rbxassetid://89991291117147"})
+local Tab = Window:MakeTab({Name = "Чит на перчу brick", Icon = "rbxassetid://89991291117147"})
 local power = 50
 local flight = 0.52
 local speed = 0
 local flightEnabled = false
 local dragEnabled = true
+local spamEnabled = false
 
 local powerTextbox = Tab:AddTextbox({
     Name = "Мощность",
@@ -61,6 +62,13 @@ local flightToggle = Tab:AddToggle({
     end
 })
 
+local spamToggle = Tab:AddToggle({
+    Name = "Включить спам абилки",
+    Default = spamEnabled,
+    Callback = function(value)
+        spamEnabled = value
+    end
+})
 
 Tab:AddButton({
     Name = "Увеличить хитбоксы",
@@ -125,9 +133,10 @@ task.spawn(function()
                 brick.Handle.Massless = true
                 brick.Handle.Size = Vector3.new(1254, math.random(1, 10), math.random(1, 10))
                 brick.FlightSpeed.Value = flight
-            else
-                brick.Handle.Massless = true
             end
+if spamEnabled then
+   local brick = game.Players.LocalPlayer.Character.Brick
+brick.Event:FireServer("lego")
         end
     end
 end)

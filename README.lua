@@ -126,7 +126,7 @@ flightspeedTextbox:Set(tostring(flight))
 
 task.spawn(function()
     while task.wait() do
-        if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Brick") then
+        if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character[glove] then
             local brick = game.Players.LocalPlayer.Character[glove]
 	if flightEnabled then
             brick.Speed.Value = speed

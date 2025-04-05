@@ -66,7 +66,7 @@ Tab:AddToggle({
         flightEnabled = value
     end
 })
-Tabv2:AddToggle({
+Tab:AddToggle({
     Name = "Включить Slap farm",
     Default = slapfarmEnabled,
     Callback = function(value)
@@ -79,12 +79,12 @@ Tab:AddButton({
     Callback = function()
        local brick = game.Players.LocalPlayer.Character.Brick
 			if brick then
-OrionLib:MakeNotification({
+--[[OrionLib:MakeNotification({
 	Name = "Функция сработала!",
 	Content = "Увеличены хитбоксы",
 	Image = "rbxassetid://9122804122",
 	Time = 5
-})
+}) --]]
 brick.Handle.Size = Vector3.new(1254, math.random(1, 10), math.random(1, 10))
 			end
 			end
@@ -109,12 +109,6 @@ Tab:AddButton({
     Callback = function()
        local brick = game.Players.LocalPlayer.Character:WaitForChild("Brick")
 			if brick then
-OrionLib:MakeNotification({
-	Name = "Функция сработала!",
-	Content = "Сброшено",
-	Image = "rbxassetid://9122804122",
-	Time = 5
-})
 flight = 0.52
         power = 5
         speed = 0.7
@@ -137,8 +131,6 @@ task.spawn(function()
                 brick.Handle.Massless = true
                 brick.Handle.Size = Vector3.new(1254, math.random(1, 10), math.random(1, 10))
                 brick.FlightSpeed.Value = flight
-				elseif spamEnabled then
-brick.Event:FireServer("lego")
             end
         end
     end
@@ -150,6 +142,7 @@ game.Players.LocalPlayer.Character.Torso.CFrame = workspace.LobbyGloboStrart.Por
 wait(0.21)
 game.Players.LocalPlayer.Backpack.Brick.Parent = game.Players.LocalPlayer.Character
 while task.wait() do
+if slapfarmEnabled then
 local VU = game:GetService("VirtualUser")
     VU:CaptureController()
     VU:ClickButton1(Vector2.new(9,9,9))
@@ -158,6 +151,8 @@ if game.Players.LocalPlayer.Character.name ~= plrs.name and plrs.Character.Inlob
 game.Players.LocalPlayer.Character.Torso.CFrame = plrs.Character.Torso.CFrame
 end
 end
+			end
+		end
 end)
 
 OrionLib:Init()

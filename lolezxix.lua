@@ -13,7 +13,7 @@ local power = 50
 local flight = 0.52
 local speed = 0
 local flightEnabled = false
-local dragEnabled = true
+local spamEnabled = false
 
 local powerTextbox = Tab:AddTextbox({
     Name = "Мощность",
@@ -58,6 +58,13 @@ local flightToggle = Tab:AddToggle({
     Default = flightEnabled,
     Callback = function(value)
         flightEnabled = value
+    end
+})
+local spamToggle = Tab:AddToggle({
+    Name = "Включить спам абилки",
+    Default = spamEnabled,
+    Callback = function(value)
+        spamEnabled = value
     end
 })
 
@@ -128,6 +135,8 @@ task.spawn(function()
             else
                 brick.Handle.Massless = true
             end
+if spamEnabled then
+brick.Event:FireServer("lego")
         end
     end
 end)

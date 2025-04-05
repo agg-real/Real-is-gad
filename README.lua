@@ -1,4 +1,5 @@
-local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion'))()
+print("Thank to lich king for helping")
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -7,13 +8,12 @@ local Mouse = LocalPlayer:GetMouse()
 local HttpService = game:GetService("HttpService")
 
 local Window = OrionLib:MakeWindow({Name = "Skibi-lich hub", HidePremium = false, SaveConfig = true})
-local Tab = Window:MakeTab({Name = "Смешно!", Icon = "rbxassetid://89991291117147"})
+local Tab = Window:MakeTab({Name = "Главная", Icon = "rbxassetid://89991291117147"})
 local power = 50
 local flight = 0.52
 local speed = 0
 local flightEnabled = false
 local dragEnabled = true
-local spamEnabled = false
 
 local powerTextbox = Tab:AddTextbox({
     Name = "Мощность",
@@ -30,7 +30,7 @@ local powerTextbox = Tab:AddTextbox({
 
 local flightspeedTextbox = Tab:AddTextbox({
     Name = "Скорость полёта",
-    Default = tostring(flight),
+    Default = tostring(power),
     Callback = function(value)
         local num = tonumber(value)
         if num then
@@ -61,13 +61,6 @@ local flightToggle = Tab:AddToggle({
     end
 })
 
-local spamToggle = Tab:AddToggle({
-    Name = "Включить спам абилки",
-    Default = spamEnabled,
-    Callback = function(value)
-        spamEnabled = value
-    end
-})
 
 Tab:AddButton({
     Name = "Увеличить хитбоксы",
@@ -132,12 +125,38 @@ task.spawn(function()
                 brick.Handle.Massless = true
                 brick.Handle.Size = Vector3.new(1254, math.random(1, 10), math.random(1, 10))
                 brick.FlightSpeed.Value = flight
+            else
+                brick.Handle.Massless = true
             end
-if spamEnabled then
-brick.Event:FireServer("lego")
         end
     end
 end)
 
 
 OrionLib:Init()
+
+local function MakeDraggable(DragPoint, Main)
+    local Dragging, DragInput, MousePos, FramePos = false
+    DragPoint.InputBegan:Connect(function(Input)
+        if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
+            Dragging = true
+            MousePos = Input.Position
+            FramePos = Main.Position
+            Input.Changed:Connect(function()
+                if Input.UserInputState == Enum.UserInputState.End then
+                    Dragging = false
+                end
+            end)
+        end
+    end)
+    DragPoint.InputChanged:Connect(function(Input)
+        if Input.UserInputType == Enum.UserInputType.MouseMovement or Input.UserInputType == Enum.UserInputType.Touch then
+            DragInput = Input
+        end
+    end)
+    UserInputService.InputChanged:Connect(function(Input)
+        if Input == DragInput and Dragging and dragEnabled then
+            local Delta = Input.Position - MousePos
+            TweenService:Create(Main, TweenInfo.new(0.05, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Position = UDim2.new(FramePos.X.Scale, FramePos.X.Offset + Delta.X, FramePos.Y.Scale, FramePos.Y.Offset + Delta.Y)}):Play()
+            Main.Position = UDim2.new(FramePos.X.Scale, FramePos.X.Offset + Delta.X, FramePos.Y.Scale, FramePos.Y.Offset + Delta.Y)
+       

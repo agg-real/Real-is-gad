@@ -146,7 +146,8 @@ task.spawn(function()
                 brick.FlightSpeed.Value = flight
 				elseif spamEnabled then
 brick.Event:FireServer("lego")
-				elseif famrslap then
+            end
+				if famrslapEnabled then
 game.Players.LocalPlayer.Character.Torso.CFrame = workspace.LobbyGloboStrart.Portal.Union.CFrame
 wait(0.21)
 game.Players.LocalPlayer.Backpack.Brick.Parent = game.Players.LocalPlayer.Character
@@ -159,7 +160,7 @@ game.Players.LocalPlayer.Character.Torso.CFrame = plrs.Character.Torso.CFrame
 end
 end
 end
-            end
+		end
         end
     end
 end)

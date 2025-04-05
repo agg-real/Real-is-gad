@@ -10,6 +10,7 @@ local HttpService = game:GetService("HttpService")
 local Window = OrionLib:MakeWindow({Name = "Skibi-lich hub", HidePremium = false, SaveConfig = true})
 local Tab = Window:MakeTab({Name = "Главная", Icon = "rbxassetid://89991291117147"})
 local power = 50
+local glove = "Brick"
 local flight = 0.52
 local speed = 0
 local flightEnabled = false
@@ -27,10 +28,18 @@ local powerTextbox = Tab:AddTextbox({
         end
     end
 })
+local glovetxt = Tab:AddTextbox({
+    Name = "Перчатка",
+    Default = tostring(glove),
+    Callback = function(value)
+glove = value
+        end
+    end
+})
 
 local flightspeedTextbox = Tab:AddTextbox({
     Name = "Скорость полёта",
-    Default = tostring(power),
+    Default = tostring(flight),
     Callback = function(value)
         local num = tonumber(value)
         if num then

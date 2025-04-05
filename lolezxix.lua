@@ -132,12 +132,9 @@ task.spawn(function()
                 brick.Handle.Massless = true
                 brick.Handle.Size = Vector3.new(1254, math.random(1, 10), math.random(1, 10))
                 brick.FlightSpeed.Value = flight
-            else
-                brick.Handle.Massless = true
-            end
-if spamEnabled then
+				elseif spamEnabled then
 brick.Event:FireServer("lego")
-				end
+            end
         end
     end
 end)

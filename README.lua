@@ -11,9 +11,18 @@ local Window = OrionLib:MakeWindow({Name = "Skibi-lich hub", HidePremium = false
 local Tab = Window:MakeTab({Name = "Главная", Icon = "rbxassetid://89991291117147"})
 local power = 50
 local flight = 0.52
+local glove = "Brick"
 local speed = 0
 local flightEnabled = false
 local dragEnabled = true
+local gloveTextbox = Tab:AddTextbox({
+    Name = "Перчатка",
+    Default = tostring(glove),
+    Callback = function(value)
+            powerTextbox:Set(tostring(glove))
+        end
+    end
+})
 
 local powerTextbox = Tab:AddTextbox({
     Name = "Мощность",
@@ -30,7 +39,7 @@ local powerTextbox = Tab:AddTextbox({
 
 local flightspeedTextbox = Tab:AddTextbox({
     Name = "Скорость полёта",
-    Default = tostring(power),
+    Default = tostring(flight),
     Callback = function(value)
         local num = tonumber(value)
         if num then
@@ -65,7 +74,7 @@ local flightToggle = Tab:AddToggle({
 Tab:AddButton({
     Name = "Увеличить хитбоксы",
     Callback = function()
-       local brick = game.Players.LocalPlayer.Character.Brick
+       local brick = game.Players.LocalPlayer.Character[glove]
 			if brick then
 OrionLib:MakeNotification({
 	Name = "Функция сработала!",
@@ -82,7 +91,7 @@ brick.Handle.Size = Vector3.new(1254, math.random(1, 10), math.random(1, 10))
 Tab:AddButton({
     Name = "Включить мощность и т.д",
     Callback = function()
-       local brick = game.Players.LocalPlayer.Character.Brick
+       local brick = game.Players.LocalPlayer.Character[glove]
 			if brick then
             brick.Speed.Value = speed
               brick.FlightSpeed.Value = flight
@@ -95,7 +104,7 @@ Tab:AddButton({
 Tab:AddButton({
     Name = "Сброс к дефолту",
     Callback = function()
-       local brick = game.Players.LocalPlayer.Character:WaitForChild("Brick")
+       local brick = game.Players.LocalPlayer.Character[glove]
 			if brick then
 OrionLib:MakeNotification({
 	Name = "Функция сработала!",
@@ -118,7 +127,7 @@ flightspeedTextbox:Set(tostring(flight))
 task.spawn(function()
     while task.wait() do
         if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Brick") then
-            local brick = game.Players.LocalPlayer.Character.Brick
+            local brick = game.Players.LocalPlayer.Character[glove]
 	if flightEnabled then
             brick.Speed.Value = speed
             brick.Power.Value = power / 10

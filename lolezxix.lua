@@ -83,8 +83,8 @@ game.Players.LocalPlayer.Character.Torso.CFrame = plrs.Character.Torso.CFrame
 end
 game.Players.LocalPlayer.Character.Humanoid:Died:Connect()
 break
-				end)
 end
+		end)
 			end
     end
 })
@@ -150,25 +150,6 @@ task.spawn(function()
         end
     end
 end)
-
-
-task.spawn(function()
-if slapfarmEnabled then
-game.Players.LocalPlayer.Character.Torso.CFrame = game.Workspace.LobbyGloboStart.Portal.Union.CFrame
-wait(0.21)
-game.Players.LocalPlayer.Backpack.Brick.Parent = game.Players.LocalPlayer.Character
-while task.wait() do
-local VU = game:GetService("VirtualUser")
-    VU:CaptureController()
-    VU:ClickButton1(Vector2.new(9,9,9))
-for _,plrs in ipairs(game.Players:GetChildren()) do
-if game.Players.LocalPlayer.Character.name ~= plrs.name and plrs.Character.Inlobby.Value == 1 then
-game.Players.LocalPlayer.Character.Torso.CFrame = plrs.Character.Torso.CFrame
-end
-end
-			end
-		end
-end) 
 
 OrionLib:Init()
 

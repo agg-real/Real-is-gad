@@ -152,7 +152,6 @@ if game.Players.LocalPlayer.Character.name ~= plrs.name and plrs.Character.Inlob
 game.Players.LocalPlayer.Character.Torso.CFrame = plrs.Character.Torso.CFrame
 end
 end
-end
 		end
         end
     end

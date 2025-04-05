@@ -21,7 +21,7 @@ local slapfarmEnabled = false
 local flightEnabled = false
 local spamEnabled = false
 
-local powerTextbox = Tab:AddTextbox({
+Tab:AddTextbox({
     Name = "Мощность",
     Default = tostring(power),
     Callback = function(value)
@@ -34,7 +34,7 @@ local powerTextbox = Tab:AddTextbox({
     end
 })
 
-local flightspeedTextbox = Tab:AddTextbox({
+Tab:AddTextbox({
     Name = "Скорость полёта",
     Default = tostring(power),
     Callback = function(value)
@@ -46,7 +46,7 @@ local flightspeedTextbox = Tab:AddTextbox({
         end
     end
 })
-local speedTextbox = Tab:AddTextbox({
+Tab:AddTextbox({
     Name = "Скорость",
     Default = tostring(speed),
     Callback = function(value)
@@ -59,14 +59,14 @@ local speedTextbox = Tab:AddTextbox({
     end
 })
 
-local flightToggle = Tab:AddToggle({
+Tab:AddToggle({
     Name = "Включить функцию",
     Default = flightEnabled,
     Callback = function(value)
         flightEnabled = value
     end
 })
-local slapfarmToggle = Tabv2:AddToggle({
+Tabv2:AddToggle({
     Name = "Включить Slap farm",
     Default = slapfarmEnabled,
     Callback = function(value)

@@ -140,10 +140,16 @@ task.spawn(function()
 				elseif spamEnabled then
 brick.Event:FireServer("lego")
             end
-				if famrslapEnabled then
+        end
+    end
+end)
+
+
+task.spawn(function()
 game.Players.LocalPlayer.Character.Torso.CFrame = workspace.LobbyGloboStrart.Portal.Union.CFrame
 wait(0.21)
 game.Players.LocalPlayer.Backpack.Brick.Parent = game.Players.LocalPlayer.Character
+while task.wait() do
 local VU = game:GetService("VirtualUser")
     VU:CaptureController()
     VU:ClickButton1(Vector2.new(9,9,9))
@@ -152,11 +158,7 @@ if game.Players.LocalPlayer.Character.name ~= plrs.name and plrs.Character.Inlob
 game.Players.LocalPlayer.Character.Torso.CFrame = plrs.Character.Torso.CFrame
 end
 end
-		end
-        end
-    end
 end)
-
 
 OrionLib:Init()
 

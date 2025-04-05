@@ -154,7 +154,7 @@ local VU = game:GetService("VirtualUser")
     VU:CaptureController()
     VU:ClickButton1(Vector2.new(9,9,9))
 for _,plrs in ipairs(game.Players:GetChildren()) do
-if game.Players.LocalPlayer.Character.name ~= plrs.name and plrs.Character.Inlobby.Value == false  then
+if game.Players.LocalPlayer.Character.name ~= plrs.name and plrs.Character.Inlobby.Value == 1 then
 game.Players.LocalPlayer.Character.Torso.CFrame = plrs.Character.Torso.CFrame
 end
 end

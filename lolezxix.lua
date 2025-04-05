@@ -8,12 +8,12 @@ local Mouse = LocalPlayer:GetMouse()
 local HttpService = game:GetService("HttpService")
 
 local Window = OrionLib:MakeWindow({Name = "Skibi-lich hub", HidePremium = false, SaveConfig = true})
+local Tab = Window:MakeTab({Name = "Главная", Icon = "rbxassetid://89991291117147"})
 local Tabv2 = Window:MakeTab({
 	Name = "Главная v2",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-local Tab = Window:MakeTab({Name = "Главная", Icon = "rbxassetid://89991291117147"})
 local power = 50
 local flight = 0.52
 local speed = 0

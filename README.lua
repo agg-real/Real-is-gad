@@ -15,15 +15,6 @@ local speed = 0
 local flightEnabled = false
 local dragEnabled = true
 
-local xowerTextbox = Tab:AddTextbox({
-	Name = "Textbox",
-	Default = "default box input",
-	TextDisappear = true,
-	Callback = function(Value)
-		print(Value)
-	end	  
-})
-
 local powerTextbox = Tab:AddTextbox({
     Name = "Мощность",
     Default = tostring(power),

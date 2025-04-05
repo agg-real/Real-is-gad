@@ -1,4 +1,3 @@
-print("Thank to lich king for helping")
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -8,7 +7,7 @@ local Mouse = LocalPlayer:GetMouse()
 local HttpService = game:GetService("HttpService")
 
 local Window = OrionLib:MakeWindow({Name = "Skibi-lich hub", HidePremium = false, SaveConfig = true})
-local Tab = Window:MakeTab({Name = "Чит на перчу brick", Icon = "rbxassetid://89991291117147"})
+local Tab = Window:MakeTab({Name = "Смешно!", Icon = "rbxassetid://89991291117147"})
 local power = 50
 local flight = 0.52
 local speed = 0

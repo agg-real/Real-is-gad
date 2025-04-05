@@ -66,13 +66,6 @@ local flightToggle = Tab:AddToggle({
         flightEnabled = value
     end
 })
-local spamToggle = Tabv2:AddToggle({
-    Name = "Включить спам абилки",
-    Default = spamEnabled,
-    Callback = function(value)
-        spamEnabled = value
-    end
-})
 local slapfarmToggle = Tabv2:AddToggle({
     Name = "Включить Slap farm",
     Default = slapfarmEnabled,

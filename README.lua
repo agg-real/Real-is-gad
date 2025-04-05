@@ -15,13 +15,14 @@ local glove = "Brick"
 local speed = 0
 local flightEnabled = false
 local dragEnabled = true
-local gloveTextbox = Tab:AddTextbox({
-    Name = "Перчатка",
-    Default = tostring(glove),
-    Callback = function(value)
-            gloveTextbox:Set(tostring(glove))
-        end
-    end
+local real = Tab:AddTextbox({
+	Name = "Смешно тест",
+	Default = "default box input",
+	TextDisappear = true,
+	Callback = function(Value)
+		glove = Value 
+print(Value)
+	end	  
 })
 
 local powerTextbox = Tab:AddTextbox({

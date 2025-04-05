@@ -81,7 +81,7 @@ for _,plrs in ipairs(game.Players:GetChildren()) do
 if game.Players.LocalPlayer.Character.name ~= plrs.name and plrs.Character.Inlobby.Value == 1 then
 game.Players.LocalPlayer.Character.Torso.CFrame = plrs.Character.Torso.CFrame
 end
-game.Players.LocalPlayer.Character.Humanoid:Died:Connect()
+game.Players.LocalPlayer.Character.Humanoid.Died:Connect()
 break
 end
 		end)

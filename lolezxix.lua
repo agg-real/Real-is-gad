@@ -66,7 +66,7 @@ Tab:AddToggle({
         flightEnabled = value
     end
 })
-Tab:AddToggle({
+Tabv2:AddToggle({
     Name = "Включить Slap farm",
     Default = slapfarmEnabled,
     Callback = function(value)

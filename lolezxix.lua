@@ -67,7 +67,7 @@ Tab:AddToggle({
     end
 })
 
-Tabv2:AddButton({
+--[[Tabv2:AddButton({
     Name = "Включить Slap farm",
     Callback = function(value)
 game.Players.LocalPlayer.Character.Torso.CFrame = game.Workspace.LobbyGloboStart.Portal.Union.CFrame
@@ -87,7 +87,7 @@ end
 		end)
 			end
     end
-})
+})--]]
 
 Tab:AddButton({
     Name = "Увеличить хитбоксы",
